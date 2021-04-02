@@ -53,7 +53,11 @@ kotlin {
                 runtimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
             }
         }
-        val jsMain by getting
+        val jsMain by getting {
+            dependencies {
+                implementation("io.kvision:kvision:4.2.3")
+            }
+        }
         val jsTest by getting {
             dependencies {
                 implementation(kotlin("test-js"))
