@@ -56,7 +56,7 @@ kotlin {
 }
 
 application {
-    mainClassName = "ServerKt"
+    mainClassName = "cberg.kst.ServerKt"
 }
 
 tasks.getByName<KotlinWebpack>("jsBrowserProductionWebpack") {

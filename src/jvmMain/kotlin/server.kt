@@ -1,3 +1,5 @@
+package cberg.kst
+
 import io.ktor.application.*
 import io.ktor.html.*
 import io.ktor.http.*

@@ -1,3 +1,5 @@
+package cberg.kst
+
 import io.kvision.Application
 import io.kvision.html.div
 import io.kvision.panel.root
