@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
 plugins {
-    kotlin("multiplatform") version "1.5.0-RC"
+    kotlin("multiplatform") version "1.5.21"
     application
 }
 
@@ -40,15 +40,15 @@ kotlin {
         }
         val jvmMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-server-netty:1.5.2")
-                implementation("io.ktor:ktor-html-builder:1.5.2")
+                implementation("io.ktor:ktor-server-netty:1.6.2")
+                implementation("io.ktor:ktor-html-builder:1.6.2")
                 implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.2")
             }
         }
         val jvmTest by getting
         val jsMain by getting {
             dependencies {
-                implementation("io.kvision:kvision:4.2.3")
+                implementation("io.kvision:kvision:4.8.3")
             }
         }
         val jsTest by getting
@@ -64,8 +64,8 @@ tasks.getByName<KotlinWebpack>("jsBrowserProductionWebpack") {
 }
 
 tasks.getByName<Jar>("jvmJar") {
-    dependsOn(tasks.getByName("jsBrowserProductionWebpack"))
     val jsBrowserProductionWebpack = tasks.getByName<KotlinWebpack>("jsBrowserProductionWebpack")
+    dependsOn(jsBrowserProductionWebpack)
     from(File(jsBrowserProductionWebpack.destinationDirectory, jsBrowserProductionWebpack.outputFileName))
 }
 
